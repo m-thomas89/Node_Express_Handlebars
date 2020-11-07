@@ -1,19 +1,20 @@
+// Node Dependency
 var mysql = require('mysql');
+var connection;
 
-
-var connection = mysql.createConnection({
-    host: 'jsftj8ez0cevjz8v.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-    user: 'wq1u3k8h5s3ivju1',
-    password: 'o8nibv7y27s0efvc',
-    database: 'xzoc3rqm6tzhxhnx'
+// For Heroku Deployment vs. Local MySQL Database
+if(process.env.JAWSDB_URL){
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+}
+else{
+  connection = mysql.createConnection({
+    host     : 'localhost',
+    user     : 'root',
+    password : 'youhavetorememberthis', // Add your password
+    database : 'burgers_db' // Add your database
   });
-  
-connection.connect(function(err) {
-    if (err) {
-        console.error('error connecting: ' + err.stack);
-        return;
-    }
-    console.log('connected as id ' + connection.threadId);
-});
+}
 
+
+// Export the Connection
 module.exports = connection;

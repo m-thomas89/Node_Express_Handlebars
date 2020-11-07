@@ -1,13 +1,13 @@
--- Create the database
-CREATE DATABASE burgers_db;
-USE `burgers_db`;
 
--- Create the table burgers
-CREATE TABLE `burgers`
-(
-	`id` INT NOT NULL AUTO_INCREMENT,
-	`burger_name` VARCHAR(255) NOT NULL,
-	`devoured` BOOLEAN DEFAULT false,
-	`date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY (id)
-);
+-- Database Creation
+CREATE DATABASE burgers_db;
+
+USE burgers_db;
+
+
+-- Table Creation
+CREATE TABLE burgers(
+id INTEGER AUTO_INCREMENT PRIMARY KEY,
+burger_name VARCHAR(50),
+devoured BOOLEAN,
+date TIMESTAMP);
