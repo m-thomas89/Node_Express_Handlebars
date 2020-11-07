@@ -1,9 +1,13 @@
-create database burgers_db;
-use burgers_db;
+-- Create the database
+CREATE DATABASE burgers_db;
+USE `burgers_db`;
 
-  create table burgers_tbl(
-    id int primary key auto_increment,
-    burger_name varchar(30) not null,
-    devoured boolean,
-    burger_time timestamp
-  );
+-- Create the table burgers
+CREATE TABLE `burgers`
+(
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`burger_name` VARCHAR(255) NOT NULL,
+	`devoured` BOOLEAN DEFAULT false,
+	`date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (id)
+);
